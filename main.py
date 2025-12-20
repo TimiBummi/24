@@ -1,16 +1,9 @@
-def main():
-    # your main code logic here
-    print("Hello from main!")
+from formula_creator import FormulaCreator
 
-    """
-    
-    all combination of brackets
-    
-    App:
-    - n operation-numbers
-    - m solution-numbers
-    - 
-    """
+
+def main():
+    # Create all formulas
+    formula_creator = FormulaCreator()
 
 if __name__ == "__main__":
     main()

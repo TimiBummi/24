@@ -5,17 +5,16 @@ from bracketing import Bracketing
 
 
 class Formula:
-
-    def __init__(self, values: List[int], brackets: Bracketing, operations: List[Operation]):
+    def __init__(self, position: List[int], brackets: Bracketing, operations: List[Operation]):
 
         """
         Example:
             ((13*13)-1)/7 is Formula([13,13,1,7], [(1,2),(1,3)], [*,-,/])
         """
-        if len(values) != len(brackets)-2 or len(values) != len(operations)-1:
+        if len(position) != len(brackets)-2 or len(position) != len(operations)-1:
             raise ValueError("Not a valid formula.")
 
-        self.values = values # List of values
+        self.position = position # List of position of values (i.e. in a term like a+b, (2,1) stands for 'the first value goes into the second slot')
         self.brackets = brackets # List of position of brackets
         self.operations = operations # List of operations
 
@@ -33,7 +32,7 @@ class Formula:
 
     def calc_outcome(self, only_integer_outcomes: bool) -> bool:
         """
-        Calculates outcome. If only_integer_outcomes is true, it stops whenever any step is non-integer.
+        Calculates outcome.
         """
         pass
 

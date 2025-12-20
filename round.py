@@ -1,9 +1,10 @@
+from Operations import operation
 from formula import Formula
 from formula_creator import FormulaCreator
 
 
 class Round:
-    def __init__(self, cards: [int], outcomes: [int], valid_operations):
+    def __init__(self, cards: [int], outcomes: [int], valid_operations: [operation]):
         self.cards = cards
         self.outcomes = outcomes
         self.valid_operations = valid_operations

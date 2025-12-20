@@ -1,11 +1,12 @@
 from typing import List, Tuple
 
+from Operations import operation
 from bracketing import Bracketing
 from formula import Formula
 
 
 class FormulaCreator:
-    def __init__(self, values: [int], valid_operations):
+    def __init__(self, values: [int], valid_operations: [operation]):
         self.values = values
         self.valid_operations = valid_operations
         self.formulas = []
@@ -13,7 +14,10 @@ class FormulaCreator:
     def create_all_unique_formulas(self) -> [Formula]:
         """
         Create all possible formulas, format them and remove duplicates.
+
+        For formatting, we assume that a<=b<=c<=d wlog.
         """
+        self.__create_all_formulas()
         for formula in self.formulas:
             formula.format_formula()
 
@@ -21,7 +25,6 @@ class FormulaCreator:
         self.formulas = list(set(self.formulas))
 
     def __create_all_formulas(self):
-        self.__create_all_formulas()
         list_of_all_value_combinations = FormulaCreator.__create_list_of_all_combinations(
             self.values,
             len(self.values)-2,
