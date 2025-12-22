@@ -9,7 +9,7 @@ class Operation(ABC):
 
     @staticmethod
     @abstractmethod
-    def visualize(formula1: str, formula2: str) -> str:
+    def to_string(value1, value2) -> str:
         pass
 
     @classmethod
@@ -37,3 +37,4 @@ class Operation(ABC):
         a * (b / c) = a * b / c
         """
         pass
+

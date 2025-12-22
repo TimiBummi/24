@@ -1,11 +1,11 @@
 from Operations.operation import Operation
 
 
-class Addition(Operation):
+class Multiplication(Operation):
 
     @staticmethod
     def calc(value1, value2):
-        return value1 + value2
+        return value1 * value2
 
     @classmethod
     @property
@@ -19,4 +19,4 @@ class Addition(Operation):
 
     @staticmethod
     def to_string(value1, value2):
-        return value1 + "+" + value2
+        return value1 + "*" + value2

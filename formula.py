@@ -1,40 +1,38 @@
 from Operations.operation import Operation
-from typing import List, Tuple
 
-from bracketing import Bracketing
 
+# Formulas don't hold the information of the actual values
 
 class Formula:
-    def __init__(self, position: List[int], brackets: Bracketing, operations: List[Operation]):
+    def __init__(self, result: float):
+        if result.is_integer():
+            result = int(result)
 
-        """
-        Example:
-            ((13*13)-1)/7 is Formula([13,13,1,7], [(1,2),(1,3)], [*,-,/])
-        """
-        if len(position) != len(brackets)-2 or len(position) != len(operations)-1:
-            raise ValueError("Not a valid formula.")
+        self.result = result
+        self.steps = []
 
-        self.position = position # List of position of values (i.e. in a term like a+b, (2,1) stands for 'the first value goes into the second slot')
-        self.brackets = brackets # List of position of brackets
-        self.operations = operations # List of operations
+    def get_result(self):
+        return self.result
 
-        self.outcome = None
+    def add_step(self, operation: Operation, first_ind: int, second_ind: int):
+        self.steps.append({
+            "operation": operation,
+            "first_ind": first_ind,
+            "second_ind": second_ind
+        })
 
-    def format_formula(self):
-        self.brackets.remove_superfluous_brackets(self.operations)
-        self.__sort_by_ascending_numbers()
+    def to_string(self, values: [int]):
+        # (a+d)*(c+b) would be (+, 0, 3), (+, 1, 2), (*, 0, 1) in reversed order
+        formula = [value.__str__() for value in values]
+        for i, step in enumerate(reversed(self.steps)):
+            formula[step["first_ind"]] = step["operation"].to_string(
+                formula[step["first_ind"]],
+                formula[step["second_ind"]]
+            )
+            if i != len(self.steps)-1:
+                formula[step["first_ind"]] = "(" + formula[step["first_ind"]] + ")"
+            formula.pop(step["second_ind"])
 
-    def __sort_by_ascending_numbers(self):
-        """
-        (13*11+1)/6 -> (1+11*13)/6
-        """
-        pass
 
-    def calc_outcome(self, only_integer_outcomes: bool) -> bool:
-        """
-        Calculates outcome.
-        """
-        pass
-
-    def __str__(self):
-        pass
+        formula[0] += " = " + self.result.__str__()
+        return formula[0]
