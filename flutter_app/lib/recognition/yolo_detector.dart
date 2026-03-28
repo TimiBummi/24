@@ -73,7 +73,6 @@ class YoloDetector {
     // 3. Decode output.
     // Output is [1, 5, N] — transpose to get N detections of [x, y, w, h, conf].
     final numDetections = outputShape.last;
-    final numFields = outputShape[1]; // should be 5 for single-class
 
     final detections = <YoloDetection>[];
     for (int i = 0; i < numDetections; i++) {
