@@ -3,3 +3,6 @@ __pycache__/
 .idea/
 data/
 docs/superpowers/
+flutter_app/linux/
+flutter_app/macos/
+flutter_app/windows/
