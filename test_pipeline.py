@@ -299,7 +299,7 @@ def run_pipeline(
             best[pred.value] = pred
 
     results = sorted(best.values(), key=lambda r: r.confidence, reverse=True)[:MAX_CARDS]
-    print(f'  [DEDUP] {len(all_preds)} detections → {len(results)} unique rank(s)')
+    print(f'  [DEDUP] {len(all_preds)} detections -> {len(results)} unique rank(s)')
 
     # Save crops if requested.
     if save_crops_dir and expected_values:
