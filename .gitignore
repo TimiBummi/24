@@ -6,3 +6,9 @@ docs/superpowers/
 flutter_app/linux/
 flutter_app/macos/
 flutter_app/windows/
+
+# Large training artifacts
+training/24_game_models/
+training/24_game_models.zip
+*.keras
+*.h5
