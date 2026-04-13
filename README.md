@@ -8,9 +8,13 @@ Given 4 playing cards, use addition, subtraction, multiplication, and division t
 
 ## Demo
 
-| Live demo | Card recognition | Ready to solve |
-|---|---|---|
-| <img src="media/demo.gif" width="30%"/> | <img src="media/screenshot1.jpeg" width="30%"/> | <img src="media/screenshot2.jpeg" width="30%"/> |
+<p>
+  <img src="media/demo.gif" width="30%"/>
+  &nbsp;
+  <img src="media/screenshot1.jpeg" width="30%"/>
+  &nbsp;
+  <img src="media/screenshot2.jpeg" width="30%"/>
+</p>
 
 ## Architecture
 
