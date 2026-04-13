@@ -10,7 +10,7 @@ Given 4 playing cards, use addition, subtraction, multiplication, and division t
 
 | Live demo | Card recognition | Ready to solve |
 |---|---|---|
-| ![App in action](media/demo.gif) | ![Screenshot 1](media/screenshot1.jpeg) | ![Screenshot 2](media/screenshot2.jpeg) |
+| <img src="media/demo.gif" width="220"/> | <img src="media/screenshot1.jpeg" width="220"/> | <img src="media/screenshot2.jpeg" width="220"/> |
 
 ## Architecture
 
